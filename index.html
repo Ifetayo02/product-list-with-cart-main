@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product list with cart</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,400;0,600;0,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="design/style.css">
+</head>
+<body class="bg-[hsl(20,50%,98%)] font-['Red_Hat_Text'] text-[hsl(14,65%,9%)]">
+    <div class="container mx-auto px-6 py-8 md:px-8 lg:px-16">
+        <div class="grid grid-cols-1 lg:grid-cols-[1fr_350px] gap-8">
+            <div>
+                <h1 class="text-4xl font-bold mb-8">Desserts</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Waffle -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-waffle-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-waffle-tablet.jpg">
+                                <img src="./assets/images/image-waffle-mobile.jpg" alt="Waffle with Berries" class="w-full rounded-lg">
+                            </picture>
+                            <button class="add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center justify-center" >
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Waffle</p>
+                            <h2 class="font-semibold text-lg mb-1">Waffle with Berries</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$6.50</p>
+                        </div>
+                    </div>
+                    <!-- Crème Brûlée -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-creme-brulee-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-creme-brulee-tablet.jpg">
+                                <img src="./assets/images/image-creme-brulee-mobile.jpg" alt="Vanilla Bean Crème Brûlée" class="w-full rounded-lg">
+                            </picture>
+                            <button class="add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center  justify-center" >
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Crème Brûlée</p>
+                            <h2 class="font-semibold text-lg mb-1">Vanilla Bean Crème Brûlée</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$7.00</p>
+                        </div>
+                    </div>
+                    <!-- Macaron -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-macaron-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-macaron-tablet.jpg">
+                                <img src="./assets/images/image-macaron-mobile.jpg" alt="Macaron Mix of Five" class="w-full rounded-lg">
+                            </picture>
+                            <button class="add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center justify-center" >
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Macaron</p>
+                            <h2 class="font-semibold text-lg mb-1">Macaron Mix of Five</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$8.00</p>
+                        </div>
+                    </div>
+                    <!-- Tiramisu -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-tiramisu-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-tiramisu-tablet.jpg">
+                                <img src="./assets/images/image-tiramisu-mobile.jpg" alt="Classic Tiramisu" class="w-full rounded-lg">
+                            </picture>
+                            <button class="add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center  justify-center">
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Tiramisu</p>
+                            <h2 class="font-semibold text-lg mb-1">Classic Tiramisu</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$5.50</p>
+                        </div>
+                    </div>
+                    <!-- Baklava -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-baklava-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-baklava-tablet.jpg">
+                                <img src="./assets/images/image-baklava-mobile.jpg" alt="Pistachio Baklava" class="w-full rounded-lg">
+                            </picture>
+                            <button class="add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center  justify-center">
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Baklava</p>
+                            <h2 class="font-semibold text-lg mb-1">Pistachio Baklava</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$4.00</p>
+                        </div>
+                    </div>
+                    <!-- Meringue -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-meringue-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-meringue-tablet.jpg">
+                                <img src="./assets/images/image-meringue-mobile.jpg" alt="Lemon Meringue Pie" class="w-full rounded-lg">
+                            </picture>
+                            <button class="add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center justify-center">
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Pie</p>
+                            <h2 class="font-semibold text-lg mb-1">Lemon Meringue Pie</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$5.00</p>
+                        </div>
+                    </div>
+                    <!-- Cake -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-cake-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-cake-tablet.jpg">
+                                <img src="./assets/images/image-cake-mobile.jpg" alt="Red Velvet Cake" class="w-full rounded-lg">
+                            </picture>
+                            <button class="add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center  justify-center"  >
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Cake</p>
+                            <h2 class="font-semibold text-lg mb-1">Red Velvet Cake</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$4.50</p>
+                        </div>
+                    </div>
+                    <!-- Brownie -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-brownie-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-brownie-tablet.jpg">
+                                <img src="./assets/images/image-brownie-mobile.jpg" alt="Salted Caramel Brownie" class="w-full rounded-lg">
+                            </picture>
+                            <button class=" add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center  justify-center">
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Brownie</p>
+                            <h2 class="font-semibold text-lg mb-1">Salted Caramel Brownie</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$4.50</p>
+                        </div>
+                    </div>
+                    <!-- Panna Cotta -->
+                    <div class="relative product-card">
+                        <div class="relative mb-6">
+                            <picture>
+                                <source media="(min-width: 1024px)" srcset="./assets/images/image-panna-cotta-desktop.jpg">
+                                <source media="(min-width: 768px)" srcset="./assets/images/image-panna-cotta-tablet.jpg">
+                                <img src="./assets/images/image-panna-cotta-mobile.jpg" alt="Vanilla Panna Cotta" class="w-full rounded-lg">
+                            </picture>
+                            <button class="add-to-cart-btn absolute bottom-[-18px] left-1/2 transform -translate-x-1/2 bg-white border border-[hsl(14,65%,9%)] rounded-full px-5 py-2 font-semibold text-sm whitespace-nowrap transition duration-200 hover:border-[hsl(14,86%,42%)] hover:text-[hsl(14,86%,42%)] flex items-center  justify-center">
+                                <img src="./assets/images/icon-add-to-cart.svg" alt="" class="w-5 h-5 mr-2">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <div>
+                            <p class="text-[hsl(7,20%,60%)] text-sm mb-1">Panna Cotta</p>
+                            <h2 class="font-semibold text-lg mb-1">Vanilla Panna Cotta</h2>
+                            <p class="text-[hsl(14,86%,42%)] font-semibold">$6.50</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:sticky lg:top-8 h-fit" id="cartDiv">
+                <div class="bg-white rounded-lg p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold text-[hsl(14,86%,42%)] mb-6">Your Cart</h2>
+                    <div class="text-center py-8">
+                        <img src="./assets/images/illustration-empty-cart.svg" alt="" class="w-24 h-24 mx-auto mb-4">
+                        <p class="text-[hsl(12,20%,44%)] font-semibold">Your added items will appear here</p>
+                    </div>
+                    <div class="hidden" id="cartItems">
+                        <ul class="space-y-4 mb-4">
+                            <!-- Cart items will be added here -->
+                        </ul>
+                        <div class="border-t border-[hsl(13,31%,94%)] pt-4 mt-4">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="text-sm">Order Total</span>
+                                <span class="text-2xl font-bold">$0.00</span>
+                            </div>
+                            <div class="text-center mb-4">
+                                <img src="./assets/images/icon-carbon-neutral.svg" alt="" class="mx-auto mb-2">
+                                <p class="text-sm text-[hsl(12,20%,44%)]">This is a <span class="font-semibold">carbon-neutral</span> delivery</p>
+                            </div>
+                            <button class="w-full bg-[hsl(14,86%,42%)] text-white py-3 rounded-full font-semibold hover:bg-[hsl(14,65%,9%)]">Confirm Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
