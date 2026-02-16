@@ -1,84 +1,73 @@
-console.log('JS connected');
-
+console.log('JS is connected');
 let cart = [];
 
-// Wait for DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.add-to-cart-btn');
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const productCard = button.closest('.product-card');
+const buttons = document.querySelectorAll('.add-to-cart-btn');
+const cartItemsContainer = document.querySelector('#cartItems'); 
+const cartList = document.querySelector('ul');
+const emptyCartView = document.querySelector('.emptyCart');
 
-            // Scrape data from the card
-            const productName = productCard.querySelector('h2').innerText;
-            const productCategory = productCard.querySelector('p').innerText;
-            const productPrice = productCard.querySelector('p:last-of-type').innerText;
-            // Get image from the mobile img tag
-            const productImage = productCard.querySelector('img').src;
-            productQuantity = 0;
-            const product = {
+buttons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault(); 
+
+        const productCard = btn.closest('.product-card');
+        const productName = productCard.querySelector('h2').innerText;
+        const priceString = productCard.querySelector('.price').innerText;
+        const productPrice = parseFloat(priceString.replace('$', ''));
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity++;
+            existingItem.totalPrice = existingItem.quantity * existingItem.price;
+        } else {
+            cart.push({
                 name: productName,
-                category: productCategory,
                 price: productPrice,
-                image: productImage,
-                quantity: productQuantity
-            };
-            cart.forEach((item) => {
-          // 1. Check if the product is already in the cart
-const existingItem = cart.find(item => item.name === product.name);
-
-if (existingItem) {
-    // 2. If it exists, just increase the quantity
-    existingItem.quantity += 1;
-} else {
-    // 3. If it's new, set quantity to 1 and push it
-    product.quantity = 1;
-    cart.push(product);
-}
-
-// 4. Always update the UI after the logic is done
-updateCartUI();
-            })
-
-
-        });
+                quantity: 1,
+                totalPrice: productPrice
+            });
+        }
+        renderUI();
     });
 });
 
-function updateCartUI() {
-    const cartItemsContainer = document.getElementById('cartItems');
-    const emptyState = document.querySelector('#cartDiv .text-center.py-8');
-    const cartHeader = document.querySelector('#cartDiv h2'); // Your "Your Cart" title
+const renderUI = () => {
+    cartList.innerHTML = '';
+    let grandTotal = 0;
+    cart.forEach(item => {
+        grandTotal += item.totalPrice;
 
-    if (cart.length === 0) {
-        cartItemsContainer.classList.add('hidden');
-        emptyState.classList.remove('hidden');
-        cartHeader.innerText = `Your Cart (0)`;
-        return;
-    }
-
-    // Show the cart container, hide empty state
-    cartItemsContainer.classList.remove('hidden');
-    if (emptyState) emptyState.classList.add('hidden');
-
-    const listContainer = cartItemsContainer.querySelector('ul');
-    let cartHTML = "";
-    let totalQuantity = 0;
-
-    cart.forEach((item) => {
-        totalQuantity += item.quantity;
-        cartHTML += `
-            <li class="flex justify-between items-center border-b pb-4 pt-2">
-                <div>
-                    <p class="font-bold text-sm rose-900 mb-1">${item.name}</p>
-                    <div class="flex gap-3">
-                        <span class="text-[hsl(14,86%,42%)] font-bold">${item.quantity}x</span>
-                        <span class="text-[hsl(7,20%,60%)]">@ ${item.price}</span>
-                    </div>
-                </div>
-                </li>`;
+        const list = document.createElement('li');
+        list.className = 'flex justify-between items-center border-b pb-2';
+        list.innerHTML = `
+            <div>
+                <h4 class="font-bold text-sm">${item.name}</h4>
+                <span class="text-[hsl(14,86%,42%)] font-semibold">${item.quantity}x</span>
+                <span class="text-[hsl(12,80%,40%)] font-normal">@ $${item.price.toFixed(2)}</span>
+                <span class="text-[hsl(14,86%,42%)] font-semibold">$${item.totalPrice.toFixed(2)}</span>
+            </div>
+            <button class="remove-btn text-[hsl(14,86%,42%)] hover:text-black" data-name="${item.name}">×</button>
+        `;
+        cartList.appendChild(list);
     });
 
-    cartHeader.innerText = `Your Cart (${totalQuantity})`;
-    listContainer.innerHTML = cartHTML;
-}
+    
+    const orderTotalDisplay = document.querySelector('.order-total'); 
+    if(orderTotalDisplay) {
+        orderTotalDisplay.innerHTML = `$${grandTotal.toFixed(2)}`;
+    }
+    if (cart.length > 0) {
+        emptyCartView?.classList.add('hidden');
+        cartItemsContainer?.classList.remove('hidden');
+    } else {
+        emptyCartView?.classList.remove('hidden');
+        cartItemsContainer?.classList.add('hidden');
+    }
+};
+cartList.addEventListener('click',(e)=>{
+    if (e.target.classList.contains('remove-btn')){
+        const nameToRemove=e.target.getAttribute('data-name')
+        cart=cart.filter(item=>item.name !== nameToRemove)
+
+        renderUI();
+    }
+})
